@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 北北基桃青年發聲盃｜公共議題辯論賽</title>
+<meta name="description" content="2026北北基桃青年發聲盃公共議題辯論賽，邀請北北基桃國中、高中職、大專學生參加。辯題：您是否支持2026年台北市推動「無菸城市」之政策？限8隊，先搶先贏！">
+<meta property="og:title" content="2026 北北基桃青年發聲盃｜公共議題辯論賽">
+<meta property="og:description" content="你對城市政策有想法嗎？那就不要只是在底下留言，直接上場辯。2026年4月19日，國立臺灣大學。">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #6C3CE1;
+  --primary-light: #A78BFA;
+  --accent: #F59E0B;
+  --accent-hot: #EF4444;
+  --green: #10B981;
+  --dark: #1E1B4B;
+  --darker: #0F0D2E;
+  --light: #F5F3FF;
+  --glass: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--darker);
+  color: #E8E0FF;
+  overflow-x: hidden;
+}
+
+/* === ANIMATED BACKGROUND === */
+.bg-animation {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none; overflow: hidden;
+}
+.bg-animation .orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3;
+  animation: floatOrb 20s infinite ease-in-out;
+}
+.bg-animation .orb:nth-child(1) { width: 500px; height: 500px; background: #6C3CE1; top: -10%; left: -10%; animation-delay: 0s; }
+.bg-animation .orb:nth-child(2) { width: 400px; height: 400px; background: #F59E0B; top: 50%; right: -10%; animation-delay: -7s; }
+.bg-animation .orb:nth-child(3) { width: 350px; height: 350px; background: #EF4444; bottom: -10%; left: 30%; animation-delay: -14s; }
+.bg-animation .orb:nth-child(4) { width: 300px; height: 300px; background: #10B981; top: 30%; left: 50%; animation-delay: -4s; }
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(60px, -40px) scale(1.1); }
+  50% { transform: translate(-30px, 60px) scale(0.9); }
+  75% { transform: translate(40px, 30px) scale(1.05); }
+}
+
+/* === NAVIGATION === */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(15, 13, 46, 0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: all 0.3s;
+}
+nav .nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 16px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+nav .logo { font-weight: 900; font-size: 1.2rem; color: #fff; }
+nav .logo span { color: var(--accent); }
+nav .nav-links { display: flex; gap: 24px; list-style: none; }
+nav .nav-links a {
+  color: #C4B5FD; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+  transition: color 0.3s; position: relative;
+}
+nav .nav-links a:hover { color: #fff; }
+nav .nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--accent); transition: width 0.3s;
+}
+nav .nav-links a:hover::after { width: 100%; }
+.menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+/* === HERO === */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 120px 24px 80px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px; border-radius: 50px;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  font-size: 0.85rem; color: var(--accent); font-weight: 500;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease-out;
+}
+.hero-badge .pulse {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent-hot);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900;
+  line-height: 1.2; margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 0%, #C4B5FD 50%, var(--accent) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+.hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.35rem); color: #A5B4FC;
+  max-width: 600px; margin: 0 auto 40px; line-height: 1.8;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+.hero .highlight { color: var(--accent); font-weight: 700; }
+
+/* Countdown */
+.countdown-wrapper {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+  margin-bottom: 40px;
+}
+.countdown-label {
+  font-size: 0.9rem; color: #A5B4FC; margin-bottom: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.countdown {
+  display: flex; gap: 16px; justify-content: center;
+}
+.countdown .unit {
+  display: flex; flex-direction: column; align-items: center;
+}
+.countdown .number {
+  font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: #fff;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 16px; padding: 12px 20px; min-width: 80px;
+  backdrop-filter: blur(10px);
+  text-shadow: 0 0 20px rgba(108, 60, 225, 0.5);
+}
+.countdown .label {
+  font-size: 0.75rem; color: #A5B4FC; margin-top: 6px; font-weight: 500;
+}
+
+/* CTA Buttons */
+.cta-group {
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 36px; border-radius: 60px; font-size: 1.05rem;
+  font-weight: 700; text-decoration: none; cursor: pointer;
+  transition: all 0.3s; border: none; font-family: inherit;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #8B5CF6);
+  color: #fff; box-shadow: 0 4px 24px rgba(108, 60, 225, 0.4);
+}
+.btn-primary:hover {
+  transform: translateY(-2px); box-shadow: 0 8px 32px rgba(108, 60, 225, 0.6);
+}
+.btn-outline {
+  background: transparent; color: #C4B5FD;
+  border: 2px solid var(--glass-border);
+}
+.btn-outline:hover {
+  background: var(--glass); border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), #F97316);
+  color: #1E1B4B; box-shadow: 0 4px 24px rgba(245, 158, 11, 0.4);
+}
+.btn-accent:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.6);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+/* === SECTIONS === */
+section { position: relative; z-index: 1; padding: 100px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  display: inline-block; font-size: 0.8rem; font-weight: 700;
+  color: var(--accent); letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900;
+  color: #fff; margin-bottom: 16px; line-height: 1.3;
+}
+.section-desc {
+  font-size: 1.05rem; color: #A5B4FC; max-width: 600px; line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* === ABOUT / TOPIC SECTION === */
+.topic-card {
+  background: linear-gradient(135deg, rgba(108, 60, 225, 0.15), rgba(139, 92, 246, 0.05));
+  border: 1px solid var(--glass-border); border-radius: 24px;
+  padding: 48px; position: relative; overflow: hidden;
+}
+.topic-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--accent-hot));
+}
+.topic-card .debate-topic {
+  font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 900; color: #fff;
+  margin: 24px 0; line-height: 1.5;
+  padding: 24px; border-radius: 16px;
+  background: var(--glass); border-left: 4px solid var(--accent);
+}
+.topic-card p { color: #C4B5FD; line-height: 1.8; margin-bottom: 16px; font-size: 1.05rem; }
+.topic-definitions {
+  margin-top: 24px; padding: 20px; border-radius: 12px;
+  background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+}
+.topic-definitions h4 { color: var(--accent); margin-bottom: 12px; font-size: 1rem; }
+.topic-definitions p { font-size: 0.92rem; color: #A5B4FC; margin-bottom: 8px; }
+
+/* === INFO CARDS === */
+.info-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px; margin-top: 40px;
+}
+.info-card {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 20px; padding: 32px; text-align: center;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.info-card:hover {
+  transform: translateY(-4px); border-color: var(--primary-light);
+  box-shadow: 0 8px 32px rgba(108, 60, 225, 0.2);
+}
+.info-card .icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin: 0 auto 16px;
+}
+.info-card h3 { color: #fff; font-size: 1rem; margin-bottom: 8px; font-weight: 700; }
+.info-card p { color: #A5B4FC; font-size: 0.95rem; line-height: 1.5; }
+.icon-date { background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05)); }
+.icon-location { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05)); }
+.icon-people { background: linear-gradient(135deg, rgba(108, 60, 225, 0.2), rgba(108, 60, 225, 0.05)); }
+.icon-team { background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05)); }
+
+/* === TIMELINE === */
+.timeline { position: relative; margin-top: 40px; }
+.timeline::before {
+  content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, var(--primary), var(--accent), var(--green));
+  border-radius: 3px;
+}
+.timeline-item {
+  position: relative; padding-left: 64px; margin-bottom: 32px;
+}
+.timeline-item::before {
+  content: ''; position: absolute; left: 16px; top: 8px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--darker); border: 3px solid var(--primary-light);
+  z-index: 2;
+}
+.timeline-item:nth-child(even)::before { border-color: var(--accent); }
+.timeline-item .time-label {
+  display: inline-block; font-size: 0.8rem; font-weight: 700;
+  color: var(--accent); background: rgba(245, 158, 11, 0.1);
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 8px;
+}
+.timeline-item h4 { color: #fff; font-size: 1.05rem; margin-bottom: 4px; }
+.timeline-item p { color: #A5B4FC; font-size: 0.9rem; }
+
+/* === PRIZES === */
+.prizes-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px; margin-top: 40px;
+}
+.prize-card {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 20px; padding: 36px 24px; text-align: center;
+  transition: all 0.4s; position: relative; overflow: hidden;
+}
+.prize-card.champion {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.03));
+  border-color: rgba(245, 158, 11, 0.3);
+}
+.prize-card.champion:hover { border-color: var(--accent); box-shadow: 0 0 40px rgba(245, 158, 11, 0.15); }
+.prize-card .trophy { font-size: 2.5rem; margin-bottom: 12px; }
+.prize-card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 8px; }
+.prize-card .amount {
+  font-size: 1.8rem; font-weight: 900; margin-bottom: 4px;
+}
+.prize-card .amount.gold { color: var(--accent); }
+.prize-card .amount.silver { color: #C0C0C0; }
+.prize-card .amount.bronze { color: #CD7F32; }
+.prize-card .plus { color: #A5B4FC; font-size: 0.9rem; }
+
+/* === RULES (PDF) SECTION === */
+.rules-preview {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 24px; padding: 40px; margin-top: 40px;
+}
+.rules-tabs {
+  display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap;
+}
+.rules-tabs button {
+  padding: 10px 20px; border-radius: 50px; border: 1px solid var(--glass-border);
+  background: transparent; color: #A5B4FC; font-size: 0.85rem;
+  font-weight: 600; cursor: pointer; transition: all 0.3s; font-family: inherit;
+}
+.rules-tabs button.active,
+.rules-tabs button:hover {
+  background: var(--primary); color: #fff; border-color: var(--primary);
+}
+.rule-content { display: none; animation: fadeIn 0.4s ease; }
+.rule-content.active { display: block; }
+.rule-content h4 { color: var(--accent); font-size: 1.1rem; margin-bottom: 16px; }
+.rule-content p, .rule-content li {
+  color: #C4B5FD; line-height: 1.8; font-size: 0.95rem;
+}
+.rule-content ul { list-style: none; padding: 0; }
+.rule-content ul li { padding: 8px 0; padding-left: 20px; position: relative; }
+.rule-content ul li::before {
+  content: ''; position: absolute; left: 0; top: 16px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary-light);
+}
+.rule-content ol { padding-left: 20px; }
+.rule-content ol li { padding: 6px 0; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* === FAQ === */
+.faq-list { margin-top: 40px; }
+.faq-item {
+  background: var(--glass); border: 1px solid var(--glass-border);
+  border-radius: 16px; margin-bottom: 12px; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.faq-item:hover { border-color: var(--primary-light); }
+.faq-question {
+  padding: 20px 24px; display: flex; justify-content: space-between;
+  align-items: center; cursor: pointer; user-select: none; outline: none;
+}
+.faq-question:focus-visible {
+  outline: 2px solid var(--primary-light); outline-offset: -2px;
+  border-radius: 16px;
+}
+.faq-question h4 { color: #fff; font-size: 1rem; font-weight: 600; flex: 1; }
+.faq-question .arrow {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(108, 60, 225, 0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--primary-light); font-size: 0.9rem;
+  transition: all 0.3s; flex-shrink: 0; margin-left: 12px;
+}
+.faq-item.open .faq-question .arrow {
+  transform: rotate(180deg); background: var(--primary); color: #fff;
+}
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.open .faq-answer {
+  max-height: 500px; padding: 0 24px 20px;
+}
+.faq-answer p { color: #A5B4FC; line-height: 1.7; font-size: 0.95rem; }
+
+/* === ORGANIZERS === */
+.org-grid {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;
+}
+.org-tag {
+  padding: 10px 20px; border-radius: 50px;
+  background: var(--glass); border: 1px solid var(--glass-border);
+  color: #C4B5FD; font-size: 0.9rem; font-weight: 500;
+}
+.org-tag.main { background: rgba(108, 60, 225, 0.2); border-color: rgba(108, 60, 225, 0.3); color: #fff; }
+
+/* === CTA FINAL === */
+.cta-section {
+  text-align: center; padding: 100px 24px;
+  background: linear-gradient(180deg, transparent, rgba(108, 60, 225, 0.1));
+}
+.cta-section h2 {
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff;
+  margin-bottom: 16px;
+}
+.cta-section p { color: #A5B4FC; margin-bottom: 32px; font-size: 1.1rem; }
+
+/* === FOOTER === */
+footer {
+  position: relative; z-index: 1;
+  text-align: center; padding: 40px 24px;
+  border-top: 1px solid var(--glass-border);
+  color: #6B7280; font-size: 0.85rem;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .menu-toggle { display: block; }
+  nav.mobile-open .nav-links {
+    display: flex !important; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(15, 13, 46, 0.98); padding: 24px;
+    border-bottom: 1px solid var(--glass-border);
+    gap: 16px;
+  }
+  nav.mobile-open .nav-links a {
+    font-size: 1.1rem; padding: 12px 0;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .hero { padding: 100px 20px 60px; }
+  .hero h1 { font-size: 2rem; line-height: 1.3; }
+  .hero .subtitle { font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px; }
+  .countdown { gap: 10px; }
+  .countdown .number { min-width: 56px; padding: 10px 12px; font-size: 1.6rem; border-radius: 12px; }
+  .countdown .label { font-size: 0.7rem; }
+  .countdown-label { font-size: 0.78rem; letter-spacing: 1px; }
+  .cta-group { flex-direction: column; align-items: center; gap: 12px; }
+  .cta-group .btn { width: 100%; max-width: 320px; justify-content: center; padding: 16px 24px; font-size: 1rem; }
+  section { padding: 60px 16px; }
+  .section-title { font-size: 1.5rem; }
+  .section-desc { font-size: 0.95rem; margin-bottom: 32px; }
+  .topic-card { padding: 24px 16px; }
+  .topic-card .debate-topic { font-size: 1.1rem; padding: 16px; }
+  .topic-definitions { padding: 16px; }
+  .topic-definitions p { font-size: 0.85rem; }
+  .info-grid { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+  .info-card { padding: 20px 12px; border-radius: 16px; }
+  .info-card .icon { width: 44px; height: 44px; font-size: 1.2rem; border-radius: 12px; margin-bottom: 10px; }
+  .info-card h3 { font-size: 0.85rem; }
+  .info-card p { font-size: 0.8rem; }
+  .timeline::before { left: 16px; }
+  .timeline-item { padding-left: 48px; margin-bottom: 24px; }
+  .timeline-item::before { left: 8px; width: 18px; height: 18px; }
+  .timeline-item .time-label { font-size: 0.75rem; padding: 3px 10px; }
+  .timeline-item h4 { font-size: 0.95rem; }
+  .timeline-item p { font-size: 0.85rem; }
+  .prizes-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .prize-card { padding: 24px 12px; border-radius: 16px; }
+  .prize-card .trophy { font-size: 2rem; margin-bottom: 8px; }
+  .prize-card h3 { font-size: 1rem; }
+  .prize-card .amount { font-size: 1.4rem; }
+  .prize-card .plus { font-size: 0.8rem; }
+  .rules-preview { padding: 20px 14px; border-radius: 16px; }
+  .rules-tabs { gap: 6px; margin-bottom: 20px; }
+  .rules-tabs button { padding: 8px 14px; font-size: 0.78rem; }
+  .rule-content h4 { font-size: 1rem; }
+  .rule-content p, .rule-content li { font-size: 0.88rem; }
+  .faq-question { padding: 16px; }
+  .faq-question h4 { font-size: 0.92rem; }
+  .faq-question .arrow { width: 28px; height: 28px; font-size: 0.75rem; }
+  .faq-item.open .faq-answer { padding: 0 16px 16px; }
+  .faq-answer p { font-size: 0.88rem; }
+  .org-tag { padding: 8px 14px; font-size: 0.82rem; }
+  .cta-section { padding: 60px 20px; }
+  .cta-section h2 { font-size: 1.5rem; }
+  .cta-section p { font-size: 0.95rem; }
+  .cta-section .btn { width: 100%; max-width: 320px; justify-content: center; }
+  footer { padding: 28px 16px; font-size: 0.78rem; }
+}
+
+/* === EXTRA SMALL MOBILE (< 380px) === */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 1.7rem; }
+  .countdown .number { min-width: 48px; padding: 8px 10px; font-size: 1.4rem; }
+  .info-grid { grid-template-columns: 1fr; }
+  .prizes-grid { grid-template-columns: 1fr; }
+  .rules-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .rules-tabs button { white-space: nowrap; flex-shrink: 0; }
+}
+
+/* === TOUCH FRIENDLY === */
+@media (hover: none) and (pointer: coarse) {
+  .btn { min-height: 48px; }
+  .faq-question { min-height: 56px; }
+  .rules-tabs button { min-height: 44px; }
+  .info-card:hover { transform: none; }
+  .prize-card:hover { transform: none; }
+}
+
+/* === MOBILE STICKY CTA === */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
+  padding: 12px 16px; padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  background: rgba(15, 13, 46, 0.95); backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+  transform: translateY(100%); transition: transform 0.3s ease;
+}
+.mobile-sticky-cta.show { transform: translateY(0); }
+@media (max-width: 768px) {
+  .mobile-sticky-cta { display: block; }
+  footer { padding-bottom: 90px; }
+}
+
+/* === SCROLL PROGRESS BAR === */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.1s;
+  width: 0%;
+}
+
+/* === FLOATING PARTICLES === */
+.particles {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+.particle {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(196, 181, 253, 0.3);
+  animation: float linear infinite;
+}
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Animated Background -->
+<div class="bg-animation">
+  <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
+</div>
+
+<!-- Floating Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo"><span>#</span>青年發聲盃</div>
+    <ul class="nav-links">
+      <li><a href="#about">關於比賽</a></li>
+      <li><a href="#schedule">賽程表</a></li>
+      <li><a href="#prizes">獎勵</a></li>
+      <li><a href="#rules">活動規則</a></li>
+      <li><a href="#faq">常見問題</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.getElementById('navbar').classList.toggle('mobile-open')">&#9776;</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-badge">
+    <span class="pulse"></span>
+    報名倒數中 — 限 8 隊，先搶先贏
+  </div>
+  <h1>2026 北北基桃<br>青年發聲盃</h1>
+  <p class="subtitle">
+    你對城市政策有想法嗎？<br>
+    那就不要只是在底下留言，<span class="highlight">直接上場辯。</span>
+  </p>
+  <div class="countdown-wrapper">
+    <div class="countdown-label">報名截止倒數</div>
+    <div class="countdown" id="countdown">
+      <div class="unit"><div class="number" id="days">--</div><div class="label">天</div></div>
+      <div class="unit"><div class="number" id="hours">--</div><div class="label">時</div></div>
+      <div class="unit"><div class="number" id="minutes">--</div><div class="label">分</div></div>
+      <div class="unit"><div class="number" id="seconds">--</div><div class="label">秒</div></div>
+    </div>
+  </div>
+  <div class="cta-group">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZl3PDdVfIZdUgzM6hhZQ6_fIomlemdffEm7dDCwMedqEC3A/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-accent">立即報名 &rarr;</a>
+    <a href="#about" class="btn btn-outline">了解更多</a>
+  </div>
+</section>
+
+<!-- ABOUT / TOPIC -->
+<section id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">About</span>
+      <h2 class="section-title">這次，用你的觀點站上台</h2>
+      <p class="section-desc">
+        2026 年，台北市正在推動「無菸城市」政策。有人支持，覺得這是為了公共健康；也有人反對，覺得這樣管太多。這題沒有標準答案，但很適合用一場辯論，正面交鋒。
+      </p>
+    </div>
+    <div class="topic-card reveal">
+      <p>不管你本來就有辯論底子，還是你很有想法、很會講道理，都歡迎你揪同學組隊來報名。公共政策不只是大人的事，還在校園裡的我們，一樣可以討論、表態、說服別人。</p>
+      <div class="debate-topic">
+        辯題：您是否支持 2026 年台北市推動「無菸城市」之政策？
+      </div>
+      <div class="topic-definitions">
+        <h4>附加定義</h4>
+        <p><strong>「密閉式室內吸菸亭」</strong>：係指設置於室內之專用吸菸空間，具備獨立結構、有效隔絕菸霧外溢之設備，並僅限於吸菸行為使用，不作為一般公共活動空間。</p>
+        <p>本辯題之討論範圍，應聚焦於政策目標一致性、實際管理效果及公共利益衡量，不涉及對吸菸者個人道德評價。</p>
+      </div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <div class="icon icon-date">&#128197;</div>
+        <h3>比賽日期</h3>
+        <p>115 年 4 月 19 日（週日）<br>09:00 - 18:00</p>
+      </div>
+      <div class="info-card">
+        <div class="icon icon-location">&#128205;</div>
+        <h3>比賽地點</h3>
+        <p>國立臺灣大學<br>應用力學所</p>
+      </div>
+      <div class="info-card">
+        <div class="icon icon-people">&#127891;</div>
+        <h3>參賽對象</h3>
+        <p>北北基桃<br>國中、高中職、大專生</p>
+      </div>
+      <div class="info-card">
+        <div class="icon icon-team">&#9876;&#65039;</div>
+        <h3>比賽制度</h3>
+        <p>新式奧瑞岡三三三制<br>限 8 隊，單淘汰</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE / TIMELINE -->
+<section id="schedule">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">Schedule</span>
+      <h2 class="section-title">賽程時間表</h2>
+      <p class="section-desc">一整天的思辨旅程，從八強到冠軍，每一場都是精彩對決。</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <span class="time-label">09:30 - 10:00</span>
+        <h4>報到</h4>
+        <p>公布八強正反方</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">10:00 - 11:30</span>
+        <h4>八強賽</h4>
+        <p>1.5 小時激烈交鋒</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">11:30 - 11:50</span>
+        <h4>領便當</h4>
+        <p>補充能量準備下午</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">11:50 - 13:30</span>
+        <h4>午餐及午休</h4>
+        <p>公布四強正反方</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">13:30 - 15:00</span>
+        <h4>四強賽</h4>
+        <p>1.5 小時半決賽</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">15:00 - 15:10</span>
+        <h4>換場準備</h4>
+        <p>公布冠亞賽正反方</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">15:10 - 16:40</span>
+        <h4>冠亞決賽</h4>
+        <p>1.5 小時冠軍爭奪</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">16:40 - 17:00</span>
+        <h4>休息、預備頒獎</h4>
+        <p>整理場地準備閉幕</p>
+      </div>
+      <div class="timeline-item">
+        <span class="time-label">17:00 - 17:30</span>
+        <h4>頒獎典禮 &amp; 專業講評</h4>
+        <p>董氏基金會專業講評</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIZES -->
+<section id="prizes">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">Prizes</span>
+      <h2 class="section-title">獎勵辦法</h2>
+      <p class="section-desc">站上舞台的每一支隊伍，都值得被肯定。</p>
+    </div>
+    <div class="prizes-grid reveal">
+      <div class="prize-card champion">
+        <div class="trophy">&#127942;</div>
+        <h3>冠軍</h3>
+        <div class="amount gold">$5,000</div>
+        <div class="plus">＋ 獎狀一張</div>
+      </div>
+      <div class="prize-card">
+        <div class="trophy">&#129352;</div>
+        <h3>亞軍</h3>
+        <div class="amount silver">$3,000</div>
+        <div class="plus">＋ 獎狀一張</div>
+      </div>
+      <div class="prize-card">
+        <div class="trophy">&#129353;</div>
+        <h3>季軍</h3>
+        <div class="amount bronze">$1,000</div>
+        <div class="plus">＋ 獎狀一張</div>
+      </div>
+      <div class="prize-card">
+        <div class="trophy">&#127775;</div>
+        <h3>參加獎</h3>
+        <div class="amount" style="color:#A5B4FC;">$300</div>
+        <div class="plus">＋ 獎狀一張</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 32px;" class="reveal">
+      <div class="prize-card" style="display:inline-block; max-width: 320px;">
+        <div class="trophy">&#127941;</div>
+        <h3>最佳辯士</h3>
+        <div class="amount gold">$1,000</div>
+        <div class="plus">＋ 獎狀一張（限 1 名）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES (PDF Content) -->
+<section id="rules">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">Rules</span>
+      <h2 class="section-title">活動規則</h2>
+      <p class="section-desc">完整比賽辦法，點選各分頁查看。</p>
+    </div>
+    <div class="rules-preview reveal">
+      <div class="rules-tabs">
+        <button class="active" onclick="switchTab(0)">報名資訊</button>
+        <button onclick="switchTab(1)">比賽程序</button>
+        <button onclick="switchTab(2)">比賽要求</button>
+        <button onclick="switchTab(3)">評分與晉級</button>
+        <button onclick="switchTab(4)">保證金規則</button>
+      </div>
+
+      <div class="rule-content active" id="tab0">
+        <h4>報名資訊</h4>
+        <ul>
+          <li>比賽對象：北北基桃地區國中、高中職及大專院校學生，得跨校、跨年級組隊；每位參賽選手須具備在校學籍（含剛入學學生及應屆畢業生）</li>
+          <li>隊數限制：8 隊（採淘汰賽制）</li>
+          <li>報名費用：每隊新臺幣 500 元整</li>
+          <li>保證金：每隊新臺幣 1,000 元整</li>
+          <li>報名截止：2026 年 3 月 18 日（三）20:00</li>
+          <li>錄取公告：2026 年 3 月 23 日（一）前公告</li>
+        </ul>
+      </div>
+
+      <div class="rule-content" id="tab1">
+        <h4>比賽程序（新式奧瑞岡三三三制）</h4>
+        <p>每場比賽雙方須出賽三名選手，出賽名單於比賽前五分鐘向主辦單位提出。</p>
+        <ol>
+          <li>正方第一位隊員申論</li>
+          <li>反方第二位隊員質詢正方第一位隊員</li>
+          <li>反方第一位隊員申論</li>
+          <li>正方第三位隊員質詢反方第一位隊員</li>
+          <li>正方第二位隊員申論</li>
+          <li>反方第三位隊員質詢正方第二位隊員</li>
+          <li>反方第二位隊員申論</li>
+          <li>正方第一位隊員質詢反方第二位隊員</li>
+          <li>正方第三位隊員申論</li>
+          <li>反方第一位隊員質詢正方第三位隊員</li>
+          <li>反方第三位隊員申論</li>
+          <li>正方第二位隊員質詢反方第三位隊員</li>
+          <li>雙方結辯（順序抽籤決定）</li>
+        </ol>
+        <p style="margin-top:16px;"><strong>計時方式</strong>：兩分半按鈴一響，三分整按鈴兩響，三分半按鈴三響。</p>
+      </div>
+
+      <div class="rule-content" id="tab2">
+        <h4>比賽要求</h4>
+        <ul>
+          <li>道具一經使用，對方亦得相同之使用權力</li>
+          <li>任何隊員於發言時，均不得涉及人身攻擊</li>
+          <li>出賽隊員於比賽開始後，不得獲己方出賽隊員以外之幫助</li>
+          <li>引述對方言詞錯誤者，視為違規</li>
+          <li>引述偽造之證據資料，不切合事實者，視為違規</li>
+          <li>選手不得於比賽期間使用網路</li>
+          <li>質詢者得控制質詢時間，隨時停止答辯者的回答</li>
+          <li>答辯者應回答質詢者所提之問題，但亦得說明理由後拒絕回答</li>
+          <li>結辯者不得提出任何申論及質詢階段未提出之論證</li>
+        </ul>
+      </div>
+
+      <div class="rule-content" id="tab3">
+        <h4>評分與晉級</h4>
+        <ul>
+          <li>評分就「個人成績」、「結辯成績」及「論點成績」分別評定</li>
+          <li>論點成績僅得判與一方</li>
+          <li>若總分平手，以「論點成績」決定勝方</li>
+          <li>本次比賽採單淘汰賽制，勝隊即晉級下一輪</li>
+          <li>獲得較多評分單之隊伍為勝隊</li>
+          <li>初賽至四強：三名社會裁</li>
+          <li>冠亞賽：五名社會裁</li>
+        </ul>
+      </div>
+
+      <div class="rule-content" id="tab4">
+        <h4>保證金規則</h4>
+        <ul>
+          <li>即日起至 2026/3/31（二）19:00 棄賽：扣除全額保證金，退回全額報名費</li>
+          <li>2026/3/31（二）19:00 後棄賽：扣除全額保證金與報名費</li>
+          <li>正式比賽期間遲到 10 分鐘者，酌扣保證金；遲到超過 15 分鐘，視同棄賽</li>
+          <li>進入四強隊伍須出席冠亞賽及閉幕式，遲到者酌扣保證金，未出席者重扣保證金</li>
+          <li>各隊須在賽程結束後填寫並繳回活動問卷，方能退領保證金</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">常見問題</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+          <h4>可以跨校組隊嗎？</h4>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>可以！北北基桃地區國中、高中職及大專院校學生皆可跨校、跨年級組隊報名。每位參賽選手須具備在校學籍（含剛入學學生及應屆畢業生）。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+          <h4>每隊需要幾個人？</h4>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>每場比賽雙方須出賽三名選手。建議隊伍人數至少三人，可準備替補選手。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+          <h4>報名費和保證金怎麼算？</h4>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>報名費每隊 $500 元，保證金每隊 $1,000 元。保證金於賽程結束後、填寫並繳回活動問卷後即可退領。若棄賽則依規定扣除。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+          <h4>沒有辯論經驗可以參加嗎？</h4>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>當然可以！不管你本來就有辯論底子，還是你很有想法、很會講道理，都歡迎揪同學組隊報名。重點是願意思考和表達。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+          <h4>比賽當天可以使用電子設備嗎？</h4>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>選手不得於比賽期間使用網路。若欲使用電子產品，應於賽前將檔案存於其中，並於比賽開始前放置於大會指定處，僅得於上臺期間調閱。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+          <h4>報名截止和公告時間？</h4>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>報名截止：2026 年 3 月 18 日（三）20:00。錄取公告：2026 年 3 月 23 日（一）前公告。名額僅 8 隊，先搶先贏！</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZERS -->
+<section id="organizers">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">Organizers</span>
+      <h2 class="section-title">主辦與協辦單位</h2>
+    </div>
+    <div class="reveal">
+      <p style="color:#A5B4FC; margin-bottom: 16px;">主辦</p>
+      <div class="org-grid" style="margin-bottom:24px;">
+        <span class="org-tag main">國教行動聯盟</span>
+      </div>
+      <p style="color:#A5B4FC; margin-bottom: 16px;">協辦</p>
+      <div class="org-grid" style="margin-bottom:24px;">
+        <span class="org-tag">中華仁親社區關懷協會</span>
+        <span class="org-tag">國際兒少人權促進會</span>
+        <span class="org-tag">董氏基金會</span>
+      </div>
+      <p style="color:#A5B4FC; margin-bottom: 16px;">承辦</p>
+      <div class="org-grid">
+        <span class="org-tag main">國教行動聯盟 青年部</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section" id="register">
+  <div class="reveal">
+    <h2>準備好讓你的觀點被聽見了嗎？</h2>
+    <p>名額僅 8 隊，先搶先贏。揪好隊友，立即報名！</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZl3PDdVfIZdUgzM6hhZQ6_fIomlemdffEm7dDCwMedqEC3A/viewform" target="_blank" class="btn btn-accent" style="font-size:1.2rem; padding: 18px 48px;">
+      立即報名 &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mobile-sticky-cta" id="mobileCta">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZl3PDdVfIZdUgzM6hhZQ6_fIomlemdffEm7dDCwMedqEC3A/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="width:100%; justify-content:center; padding: 14px 24px; font-size: 1rem; border-radius: 14px;">
+    立即報名 &rarr;
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 國教行動聯盟 青年部｜2026 北北基桃青年發聲盃</p>
+</footer>
+
+<script>
+// === COUNTDOWN ===
+function updateCountdown() {
+  const deadline = new Date('2026-03-18T20:00:00+08:00');
+  const now = new Date();
+  const diff = deadline - now;
+
+  if (diff <= 0) {
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+    document.querySelector('.countdown-label').textContent = '報名已截止';
+    document.querySelector('.hero-badge').innerHTML = '<span class="pulse" style="background:#EF4444;"></span> 報名已截止';
+    document.querySelectorAll('.btn-accent').forEach(function(btn) {
+      btn.textContent = '報名已截止';
+      btn.style.opacity = '0.5';
+      btn.style.pointerEvents = 'none';
+      btn.style.cursor = 'not-allowed';
+    });
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('days').textContent = String(d).padStart(2, '0');
+  document.getElementById('hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// === SCROLL REVEAL ===
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// === PROGRESS BAR ===
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+});
+
+// === FAQ ===
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// === RULES TABS ===
+function switchTab(index) {
+  document.querySelectorAll('.rule-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.rules-tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab' + index).classList.add('active');
+  document.querySelectorAll('.rules-tabs button')[index].classList.add('active');
+}
+
+// === FLOATING PARTICLES ===
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (15 + Math.random() * 20) + 's';
+  p.style.animationDelay = Math.random() * 20 + 's';
+  p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+  particlesContainer.appendChild(p);
+}
+
+// === MOBILE STICKY CTA ===
+const mobileCta = document.getElementById('mobileCta');
+let lastScrollY = 0;
+function checkMobileCta() {
+  const scrollY = window.scrollY;
+  const heroBottom = document.getElementById('hero').offsetHeight;
+  if (scrollY > heroBottom * 0.6) {
+    mobileCta.classList.add('show');
+  } else {
+    mobileCta.classList.remove('show');
+  }
+  lastScrollY = scrollY;
+}
+window.addEventListener('scroll', checkMobileCta, { passive: true });
+
+// === SMOOTH NAV LINK SCROLL ===
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('navbar').classList.remove('mobile-open');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
